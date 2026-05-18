@@ -85,6 +85,7 @@ Base: `http://localhost:3001/api`
 | `GET` | `/notes` | List notes (`patientName`, `createdAt`, `preview`, `status`) |
 | `GET` | `/notes/:id` | Note + nested `patient` |
 | `POST` | `/notes` | Create from JSON `{ patientId, text }` or multipart audio |
+| `DELETE` | `/notes/:id` | Permanently delete a note (returns `204 No Content`) |
 
 ## Security & compliance (auth not implemented)
 
