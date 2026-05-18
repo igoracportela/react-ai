@@ -88,7 +88,7 @@ Base: `http://localhost:3001/api`
 
 ## Security & compliance (auth not implemented)
 
-**Authentication is not implemented** — out of scope for this MVP. In production, names, DOB, notes, and audio are **PHI under HIPAA** (and LGPD where applicable). I would add OAuth2/JWT, RBAC, tenant scoping, audit logs on PHI access, TLS, encryption at rest, and a BAA with any external AI vendor — or self-hosted transcription to limit egress.
+**Authentication is not implemented** — out of scope for this MVP. In production, names, DOB, notes, and audio are **PHI under HIPAA**. I would add OAuth2/JWT, RBAC, tenant scoping, audit logs on PHI access, TLS, encryption at rest, and a BAA with any external AI vendor — or self-hosted transcription to limit egress.
 
 ## Trade-offs (what we cut and why)
 
