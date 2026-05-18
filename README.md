@@ -104,27 +104,6 @@ Base: `http://localhost:3001/api`
 
 **Transcription status example:** I did not add WebSockets because the MVP blocks on one request but still writes `status` on the row. In production, long audio would enqueue on **SQS**, persist `raw_transcription` after Whisper, then `processed_note` after structuring, and notify the UI via poll or **SNS → WebSocket**.
 
-## Rubric checklist
-
-| Criterion | Status |
-|-----------|--------|
-| `docker compose up` only (≤5 commands in README) | ✅ |
-| `.env.example` complete; no secrets in git | ✅ |
-| Trade-offs with justification | ✅ |
-| Postgres + migrations + seed on compose up | ✅ |
-| `raw_transcription` + `processed_note` columns | ✅ |
-| Note `status` enum | ✅ |
-| 3 seeded patients (auto) | ✅ |
-| Modular NestJS (controllers/services/entities) | ✅ |
-| `strict` TypeScript | ✅ |
-| Global error filter + note-level errors | ✅ |
-| `class-validator` on DTOs | ✅ |
-| Audio/text E2E flow + SOAP | ✅ (mock or OpenAI) |
-| List: patient name, date, preview | ✅ |
-| Detail: raw + processed + patient panel | ✅ |
-| Data persists (`postgres_data` volume) | ✅ |
-| Automated tests | ✅ `npm test` + optional `test:e2e` |
-
 ## Local development (without Docker)
 
 ```bash
