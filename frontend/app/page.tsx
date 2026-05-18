@@ -16,30 +16,26 @@ export default async function NotesPage() {
 
   return (
     <div className="container">
-      <h1 className="page-title">Clinical Notes</h1>
-      <p className="page-subtitle">
-        AI-generated notes associated with patients. Search, paginate, and click a row to
-        open details.
-      </p>
-
-      <p style={{ marginBottom: '1rem' }}>
+      <div className="page-header-row">
+        <div>
+          <h1 className="page-title">Clinical Notes</h1>
+          <p className="page-subtitle">
+            AI-generated notes associated with patients. Search, paginate, and click a row to open
+            details.
+          </p>
+        </div>
         <Link href="/notes/new" className="btn btn-primary">
           + New Note
         </Link>
-      </p>
+      </div>
 
       {error && <div className="error-banner">{error}</div>}
 
-      {!error && notes.length === 0 && (
-        <div className="card empty-state">
-          <p>No notes yet.</p>
-          <p style={{ marginTop: '0.5rem' }}>
-            <Link href="/notes/new">Create your first note</Link>
-          </p>
-        </div>
-      )}
+      {!error && <NotesTable notes={notes} />}
 
-      {!error && notes.length > 0 && <NotesTable notes={notes} />}
+      <Link href="/notes/new" className="fab" aria-label="New note">
+        +
+      </Link>
     </div>
   );
 }

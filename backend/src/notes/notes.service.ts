@@ -150,6 +150,12 @@ export class NotesService {
     };
   }
 
+  async delete(id: string): Promise<void> {
+    const note = await this.noteRepo.findOne({ where: { id } });
+    if (!note) throw new NotFoundException(`Note ${id} not found`);
+    await this.noteRepo.remove(note);
+  }
+
   private buildPreview(note: Note): string {
     if (note.status === NoteStatus.ERROR) {
       return note.errorMessage ?? 'Processing failed';

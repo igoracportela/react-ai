@@ -16,16 +16,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/" className="logo">
               AI Scribe Notes
             </Link>
-            <nav>
-              <ul className="nav-links">
-                <li>
-                  <Link href="/">Notes</Link>
-                </li>
-                <li>
-                  <Link href="/notes/new">New Note</Link>
-                </li>
-              </ul>
-            </nav>
           </div>
         </header>
         <main>{children}</main>

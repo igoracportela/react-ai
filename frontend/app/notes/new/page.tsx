@@ -61,15 +61,17 @@ export default function NewNotePage() {
   }
 
   return (
-    <div className="container">
-      <h1 className="page-title">New Clinical Note</h1>
-      <p className="page-subtitle">
-        Select a patient and provide typed text or upload an audio recording for AI processing.
-      </p>
+    <div className="container new-note-page">
+      <div className="new-note-header">
+        <h1 className="page-title">New Clinical Note</h1>
+        <p className="page-subtitle">
+          Select a patient and provide typed text or upload an audio recording for AI processing.
+        </p>
+      </div>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && <div className="error-banner new-note-error">{error}</div>}
 
-      <div className="card" style={{ maxWidth: 640 }}>
+      <div className="card new-note-card">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="patient">Patient</label>
@@ -126,18 +128,19 @@ export default function NewNotePage() {
                 required={mode === 'audio'}
               />
               <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginTop: '0.35rem' }}>
-                Supported: WAV, MP3, WebM, OGG, M4A (max 25MB). Audio is transcribed then structured as SOAP.
+                Supported: WAV, MP3, WebM, OGG, M4A (max 25MB). Audio is transcribed then
+                structured as SOAP.
               </p>
             </div>
           )}
 
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem' }}>
-            <button type="submit" className="btn btn-primary" disabled={loading}>
-              {loading ? 'Processing…' : 'Submit note'}
-            </button>
+          <div className="new-note-actions">
             <Link href="/" className="btn btn-secondary">
               Cancel
             </Link>
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Processing…' : 'Submit note'}
+            </button>
           </div>
         </form>
       </div>

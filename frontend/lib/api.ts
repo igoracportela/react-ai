@@ -114,6 +114,7 @@ export const api = {
     form.append('audio', audio);
     return request<NoteDetail>('/notes', { method: 'POST', body: form });
   },
+  deleteNote: (id: string) => request<void>(`/notes/${id}`, { method: 'DELETE' }),
 };
 
 export const NOTE_STATUS_LABELS: Record<NoteStatus, string> = {

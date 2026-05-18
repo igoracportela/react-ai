@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
@@ -39,5 +40,11 @@ export class NotesController {
       return this.notesService.createFromAudio(dto.patientId, audio);
     }
     return this.notesService.createFromText(dto);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async delete(@Param('id', ParseUUIDPipe) id: string) {
+    return this.notesService.delete(id);
   }
 }
